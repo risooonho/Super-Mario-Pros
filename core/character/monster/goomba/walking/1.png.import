@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/walking.png-f4156ed1dd641d09465e93d39715c88b.stex"
+path="res://.import/1.png-b6daa6c6fdde791d274fa9f4f948ffea.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://core/mario/walking.png"
-dest_files=[ "res://.import/walking.png-f4156ed1dd641d09465e93d39715c88b.stex" ]
+source_file="res://core/character/monster/goomba/walking/1.png"
+dest_files=[ "res://.import/1.png-b6daa6c6fdde791d274fa9f4f948ffea.stex" ]
 
 [params]
 

@@ -1,10 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://core/mario/Mario.gd" type="Script" id=1]
-[ext_resource path="res://core/mario/idle.png" type="Texture" id=2]
-[ext_resource path="res://core/mario/walking/0.png" type="Texture" id=3]
-[ext_resource path="res://core/mario/walking/1.png" type="Texture" id=4]
-[ext_resource path="res://core/mario/walking/2.png" type="Texture" id=5]
+[ext_resource path="res://core/character/mario/Mario.gd" type="Script" id=1]
+[ext_resource path="res://core/character/mario/idle.png" type="Texture" id=2]
+[ext_resource path="res://core/character/mario/walking/0.png" type="Texture" id=3]
+[ext_resource path="res://core/character/mario/walking/1.png" type="Texture" id=4]
+[ext_resource path="res://core/character/mario/walking/2.png" type="Texture" id=5]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
