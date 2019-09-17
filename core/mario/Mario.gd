@@ -1,9 +1,12 @@
 extends KinematicBody2D
 
 
+# Public variables
+export(float) var speed = 64
+
+
 # Private variables
 var direction = Vector2()
-var max_speed = 25
 
 
 # References
@@ -17,12 +20,14 @@ func _input(event):
 	elif event.is_action_pressed("move_right"):
 		Sprite.scale.x = 1
 		Sprite.animation = "walking"
+	elif event.is_action_pressed("jump"):
+		pass
 
 
 func _process(delta):
 	direction.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	
-	move_and_collide(direction * max_speed * delta)
+	move_and_collide(direction * speed * delta)
 	
 	if direction.x == 0:
 		Sprite.animation = "idle"
