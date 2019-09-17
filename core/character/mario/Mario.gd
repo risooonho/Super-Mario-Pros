@@ -11,10 +11,10 @@ var direction = Vector2()
 
 
 # Constants
-const GRAVITY = 500
+const GRAVITY = 512
 const GRAVITY_DIRECTION = Vector2.DOWN
 
-const JUMP_FORCE = 200
+const JUMP_FORCE = 256
 
 
 # References
@@ -33,11 +33,16 @@ func _input(event):
 
 
 func _physics_process(delta):
+	# Gravity force
+	direction.y = speed_y * delta
 	speed_y += GRAVITY * delta
 	
-	direction.y = speed_y * delta
+	var move_remaining = move_and_slide(direction * speed)
 	
-	var collision = move_and_collide(direction * speed * delta)
+	if is_on_wall():
+		print(move_remaining)
+		
+		speed_y = 0
 
 
 func _process(delta):
