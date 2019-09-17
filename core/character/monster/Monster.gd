@@ -2,11 +2,15 @@ extends "res://core/character/Character.gd"
 
 
 # Public variables
-export(float) var speed = 20.0
+
 
 
 # Private variables
 var direction = Vector2.LEFT
+
+
+func _ready():
+	speed = 20.0
 
 
 func _physics_process(delta):
