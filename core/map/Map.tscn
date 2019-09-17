@@ -14,3 +14,7 @@ smoothing_enabled = true
 [node name="TileMap" type="TileMap" parent="."]
 cell_size = Vector2( 8, 8 )
 format = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+
+[node name="Musics" type="ResourcePreloader" parent="Music"]
