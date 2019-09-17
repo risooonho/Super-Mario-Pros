@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://core/character/Character.gd"
 
 
 # Public variables
@@ -48,7 +48,7 @@ func _physics_process(delta):
 	var collision = move_and_collide(direction * speed * delta)
 	
 	if collision:
-		if collision.collider is preload("res://core/monster/Monster.gd"):
+		if collision.collider is preload("res://core/character/monster/Monster.gd"):
 			queue_free()
 	
 	if not jumping:

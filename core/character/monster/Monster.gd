@@ -1,8 +1,8 @@
-extends KinematicBody2D
+extends "res://core/character/Character.gd"
 
 
 # Public variables
-export(float) var speed = 10.0
+export(float) var speed = 20.0
 
 
 # Private variables
