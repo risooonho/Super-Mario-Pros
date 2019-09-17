@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://core/mario/Mario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://core/map/Music.tscn" type="PackedScene" id=2]
 
 [node name="Map" type="Node"]
 
@@ -15,6 +16,4 @@ smoothing_enabled = true
 cell_size = Vector2( 8, 8 )
 format = 1
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-
-[node name="Musics" type="ResourcePreloader" parent="Music"]
+[node name="Music" parent="." instance=ExtResource( 2 )]
