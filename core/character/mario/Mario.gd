@@ -9,6 +9,7 @@ extends "res://core/character/Character.gd"
 
 
 # Constants
+const JUMP_MAX_TIME = .4
 const JUMP_FORCE = 256
 
 
@@ -31,7 +32,10 @@ func _physics_process(delta):
 	
 	# Get jump input
 	if Input.is_action_pressed("jump") and is_on_floor():
+		Sprite.animation = "idle"
 		velocity.y = -JUMP_FORCE
+	elif Input.is_action_just_released("jump") and velocity.y < -50:
+		velocity.y = -64
 	
 	if direction.x == 0:
 		Sprite.animation = "idle"
