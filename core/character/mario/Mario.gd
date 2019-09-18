@@ -17,27 +17,31 @@ const JUMP_FORCE = 256
 onready var Sprite = $Sprite
 
 
-func _input(event):
-	if event.is_action_pressed("move_left"):
-		Sprite.scale.x = -1
-		Sprite.animation = "walking"
-	elif event.is_action_pressed("move_right"):
-		Sprite.scale.x = 1
-		Sprite.animation = "walking"
-
-
 func _physics_process(delta):
 	# Get direction input
-	direction.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
+	var input = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
+	if input == -1:
+		Sprite.scale.x = -1
+		if is_on_floor():
+			Sprite.animation = "walking"
+		else:
+			Sprite.animation = "idle"
+	elif input == 1:
+		Sprite.scale.x = 1
+		if is_on_floor():
+			Sprite.animation = "walking"
+		else:
+			Sprite.animation = "idle"
+	direction.x = input
 	
 	# Get jump input
 	if Input.is_action_pressed("jump") and is_on_floor():
 		Sprite.animation = "idle"
 		velocity.y = -JUMP_FORCE
-	elif Input.is_action_just_released("jump") and velocity.y < -50:
+	elif Input.is_action_just_released("jump") and velocity.y < -64:
 		velocity.y = -64
 	
-	if direction.x == 0:
+	if direction.x == 0 or direction.y < 0:
 		Sprite.animation = "idle"
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
