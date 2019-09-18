@@ -43,16 +43,16 @@ __meta__ = {
 [node name="Monsters" type="Node" parent="."]
 
 [node name="Goomba" parent="Monsters" instance=ExtResource( 5 )]
-position = Vector2( 184, -88 )
-
-[node name="Goomba2" parent="Monsters" instance=ExtResource( 5 )]
 position = Vector2( 200, -88 )
 
+[node name="Goomba2" parent="Monsters" instance=ExtResource( 5 )]
+position = Vector2( 216, -88 )
+
 [node name="Goomba3" parent="Monsters" instance=ExtResource( 5 )]
-position = Vector2( 200, -104 )
+position = Vector2( 216, -104 )
 
 [node name="Goomba4" parent="Monsters" instance=ExtResource( 5 )]
-position = Vector2( 184, -104 )
+position = Vector2( 200, -104 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
