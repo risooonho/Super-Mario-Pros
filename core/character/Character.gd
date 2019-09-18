@@ -6,9 +6,8 @@ export(float) var speed = 50
 
 
 # Private variables
-var speed_x = 0
-var speed_y = 0
-var direction = Vector2()
+var direction = Vector2.RIGHT
+var velocity = Vector2()
 
 
 # Constants
@@ -21,5 +20,6 @@ func _ready():
 
 func _physics_process(delta):
 	# Gravity force
-	direction.y = speed_y * delta
-	speed_y += GRAVITY * delta
+	velocity.y += GRAVITY * delta
+	
+	velocity.x = direction.x * speed
