@@ -13,7 +13,11 @@ signal died(position)
 
 
 
+# References
+onready var Map = $"../.."
+
 func _ready():
+	connect("died", Map, "_handle_died")
 	direction = Vector2.LEFT
 	speed = 20.0
 
