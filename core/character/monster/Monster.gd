@@ -31,11 +31,11 @@ func _physics_process(delta):
 func handle_collision(collision):
 	if collision != null:
 		if collision.collider != null:
-			if collision.collider is preload("res://core/character/mario/Mario.gd") and collision.normal.x != 0:
-				collision.collider.queue_free()
-			elif collision.normal in [Vector2.LEFT, Vector2.RIGHT]:
-				direction.x = -direction.x
-			else:
+			if collision.collider is preload("res://core/character/mario/Mario.gd"):
 				if collision.normal == Vector2.DOWN:
 					emit_signal("died", global_position)
 					queue_free()
+				elif collision.normal.x != 0:
+					collision.collider.queue_free()
+			elif collision.normal in [Vector2.LEFT, Vector2.RIGHT]:
+				direction.x = -direction.x
