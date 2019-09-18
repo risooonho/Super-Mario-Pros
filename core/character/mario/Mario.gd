@@ -6,7 +6,6 @@ extends "res://core/character/Character.gd"
 
 
 # Private variables
-var jumping = false
 
 
 # Constants
@@ -24,30 +23,22 @@ func _input(event):
 	elif event.is_action_pressed("move_right"):
 		Sprite.scale.x = 1
 		Sprite.animation = "walking"
-	elif event.is_action_pressed("jump"):
-		if not jumping:
-			jumping = true
-			speed_y = -JUMP_FORCE
-
-
-func _process(delta):
-	direction.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
-	
-	if direction.x == 0:
-		Sprite.animation = "idle"
 
 
 func _physics_process(delta):
-	move_and_slide(direction * speed)
+	# Get direction input
+	direction.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	
-	if is_on_wall():
-		speed_y = 0
-		jumping = false
+	# Get jump input
+	if Input.is_action_pressed("jump") and is_on_floor():
+		velocity.y = -JUMP_FORCE
+	
+	if direction.x == 0:
+		Sprite.animation = "idle"
+	
+	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	var collision
 	
 	for i in get_slide_count():
 		collision = get_slide_collision(i)
-	
-	if collision != null:
-		pass
