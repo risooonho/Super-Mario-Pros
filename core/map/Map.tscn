@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://core/mario/Mario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://core/character/mario/Mario.tscn" type="PackedScene" id=1]
 [ext_resource path="res://core/tileset/tileset.png" type="Texture" id=2]
 [ext_resource path="res://core/map/Music.tscn" type="PackedScene" id=3]
-[ext_resource path="res://core/monster/goomba/Goomba.tscn" type="PackedScene" id=4]
+[ext_resource path="res://core/character/monster/goomba/Goomba.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/gui/menu/Menu.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -30,7 +30,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [node name="Map" type="Node"]
 
 [node name="Mario" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -500 )
+position = Vector2( -104, 8 )
 
 [node name="Camera" type="Camera2D" parent="Mario"]
 current = true
@@ -39,7 +39,7 @@ limit_left = -128
 limit_bottom = 40
 smoothing_enabled = true
 drag_margin_left = 0.0
-drag_margin_top = 0.5
+drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 __meta__ = {
@@ -69,3 +69,4 @@ position = Vector2( 120, 8 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = false

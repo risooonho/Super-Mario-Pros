@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2.png-abf55b551f593ac185531ac9bf253e80.stex"
+path="res://.import/idle.png-66a914a096355284140e322bc0086bef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://core/mario/walking/2.png"
-dest_files=[ "res://.import/2.png-abf55b551f593ac185531ac9bf253e80.stex" ]
+source_file="res://core/character/mario/idle.png"
+dest_files=[ "res://.import/idle.png-66a914a096355284140e322bc0086bef.stex" ]
 
 [params]
 

@@ -1,24 +1,20 @@
-extends KinematicBody2D
+extends "res://core/character/Character.gd"
 
 
 # Public variables
-export(float) var speed = 64
-export(float) var jump_height = 64
 
 
 # Private variables
 var speed_x = 0
 var speed_y = 0
-
-var gravity = MIN_GRAVITY
 var direction = Vector2()
-
-var jumping = false
 
 
 # Constants
-const MIN_GRAVITY = 100.0
+const GRAVITY = 512
 const GRAVITY_DIRECTION = Vector2.DOWN
+
+const JUMP_FORCE = 256
 
 
 # References
@@ -33,38 +29,24 @@ func _input(event):
 		Sprite.scale.x = 1
 		Sprite.animation = "walking"
 	elif event.is_action_pressed("jump"):
-		jump()
-
-
-func jump():
-	if not jumping:
-		jumping = true
-		
-		
-		jumping = false
+		speed_y = -JUMP_FORCE
 
 
 func _physics_process(delta):
-	var collision = move_and_collide(direction * speed * delta)
+	# Gravity force
+	direction.y = speed_y * delta
+	speed_y += GRAVITY * delta
 	
-	if collision:
-		if collision.collider is preload("res://core/monster/Monster.gd"):
-			queue_free()
+	var move_remaining = move_and_slide(direction * speed)
 	
-	if not jumping:
-		if move_and_collide(gravity * GRAVITY_DIRECTION * delta):
-			gravity = MIN_GRAVITY
-		else:
-			gravity += gravity * GRAVITY_DIRECTION.y * delta
+	if is_on_wall():
+		print(move_remaining)
+		
+		speed_y = 0
 
 
 func _process(delta):
 	direction.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
-	
-	if global_position.y > 40:
-		OS.alert("Game Over!")
-		set_process(false)
-		get_tree().quit()
 	
 	if direction.x == 0:
 		Sprite.animation = "idle"

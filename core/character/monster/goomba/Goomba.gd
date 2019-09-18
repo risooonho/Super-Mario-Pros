@@ -1,0 +1,1 @@
+extends "res://core/character/monster/Monster.gd"
