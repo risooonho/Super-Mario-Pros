@@ -4,16 +4,12 @@ extends "res://core/character/Character.gd"
 # Public variables
 
 
+
 # Private variables
-var speed_x = 0
-var speed_y = 0
-var direction = Vector2()
+var jumping = false
 
 
 # Constants
-const GRAVITY = 512
-const GRAVITY_DIRECTION = Vector2.DOWN
-
 const JUMP_FORCE = 256
 
 
@@ -29,20 +25,9 @@ func _input(event):
 		Sprite.scale.x = 1
 		Sprite.animation = "walking"
 	elif event.is_action_pressed("jump"):
-		speed_y = -JUMP_FORCE
-
-
-func _physics_process(delta):
-	# Gravity force
-	direction.y = speed_y * delta
-	speed_y += GRAVITY * delta
-	
-	var move_remaining = move_and_slide(direction * speed)
-	
-	if is_on_wall():
-		print(move_remaining)
-		
-		speed_y = 0
+		if not jumping:
+			jumping = true
+			speed_y = -JUMP_FORCE
 
 
 func _process(delta):
@@ -50,3 +35,19 @@ func _process(delta):
 	
 	if direction.x == 0:
 		Sprite.animation = "idle"
+
+
+func _physics_process(delta):
+	move_and_slide(direction * speed)
+	
+	if is_on_wall():
+		speed_y = 0
+		jumping = false
+	
+	var collision
+	
+	for i in get_slide_count():
+		collision = get_slide_collision(i)
+	
+	if collision != null:
+		pass
