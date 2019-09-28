@@ -14,10 +14,6 @@ var velocity = Vector2()
 const GRAVITY = 512
 
 
-func _ready():
-	pass
-
-
 func _physics_process(delta):
 	# Gravity force
 	velocity.y += GRAVITY * delta
