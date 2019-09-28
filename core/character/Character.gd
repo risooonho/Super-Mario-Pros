@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Character
 
 
 # Public variables
@@ -12,10 +13,6 @@ var velocity = Vector2()
 
 # Constants
 const GRAVITY = 512
-
-
-func _ready():
-	pass
 
 
 func _physics_process(delta):
