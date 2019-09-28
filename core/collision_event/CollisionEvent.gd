@@ -10,6 +10,7 @@ var ColliderObject
 var enterBody
 var initialized = false
 
+
 func initialize(_colliderObject, _enterBody):
 	self.ColliderObject = _colliderObject
 	self.enterBody = _enterBody
