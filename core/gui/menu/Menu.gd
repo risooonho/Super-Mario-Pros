@@ -2,19 +2,14 @@ extends Node2D
 
 
 # Public variables
+export(NodePath) var Rect_path
 
 
 # Private variables
 var enabled = false
 var blur_amount = .0
 
-
-# References
-onready var Rect = $Rect
-
-
-func _ready():
-	pass
+onready var Rect = get_node(Rect_path)
 
 
 func enable():
