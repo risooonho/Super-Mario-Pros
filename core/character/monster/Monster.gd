@@ -1,4 +1,4 @@
-extends "res://core/character/Character.gd"
+extends Character
 
 
 # Signals
@@ -6,15 +6,12 @@ signal died(position)
 
 
 # Public variables
-
+export(NodePath) var Map_path
 
 
 # Private variables
+onready var Map = get_node(Map_path)
 
-
-
-# References
-onready var Map = $"../.."
 
 func _ready():
 	connect("died", Map, "_handle_died")
