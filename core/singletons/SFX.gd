@@ -4,7 +4,7 @@ extends Node
 var Sound = preload("res://core/sound/Sound.tscn")
 
 
-func play(sound_path, volume_db):
+func play(sound_path, volume_db=0):
 	var sound = Sound.instance()
 	sound.stream = load(sound_path)
 	sound.volume_db = volume_db
