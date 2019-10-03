@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "CollectableItem",
 "language": "GDScript",
-"path": "res://core/CollectableItem/CollectableItem.gd"
+"path": "res://core/collectable_item/CollectableItem.gd"
 }, {
 "base": "Node",
 "class": "Map",
