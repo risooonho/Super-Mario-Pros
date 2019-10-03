@@ -1,4 +1,5 @@
 extends Character
+class_name Monster
 
 
 # Signals
@@ -8,9 +9,11 @@ signal died(position)
 # Public variables
 export(NodePath) var Map_path
 
-
-# Private variables
 onready var Map = get_node(Map_path)
+
+
+# Preload
+var Mario = load("res://core/character/mario/Mario.gd")
 
 
 func _ready():
@@ -26,13 +29,13 @@ func _physics_process(delta):
 	
 	for i in get_slide_count():
 		collision = get_slide_collision(i)
-		handle_collision(collision)
+		_handle_collision(collision)
 
 
-func handle_collision(collision):
+func _handle_collision(collision):
 	if collision != null:
 		if collision.collider != null:
-			if collision.collider is preload("res://core/character/mario/Mario.gd"):
+			if collision.collider is Mario:
 				if collision.normal == Vector2.DOWN:
 					emit_signal("died", global_position)
 					queue_free()
