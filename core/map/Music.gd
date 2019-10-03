@@ -6,9 +6,15 @@ onready var Musics = $Musics
 
 
 func _ready():
-	randomize()
-	stream = Musics.get_resource(str(randi()%3))
-	play()
+	randomize_song()
+
+
+func randomize_song():
+	if not playing:
+		randomize()
+		stream = Musics.get_resource(str(randi()%3))
+		play()
+
 
 func _on_Timer_timeout():
-	pass
+	randomize_song()

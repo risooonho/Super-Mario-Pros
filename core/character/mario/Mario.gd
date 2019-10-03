@@ -1,4 +1,5 @@
 extends Character
+class_name Mario
 
 
 # Public variables

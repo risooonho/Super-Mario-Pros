@@ -8,9 +8,38 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://core/character/Character.gd"
+}, {
+"base": "Area2D",
+"class": "CollectableItem",
+"language": "GDScript",
+"path": "res://core/collectable_item/CollectableItem.gd"
+}, {
+"base": "Node",
+"class": "Map",
+"language": "GDScript",
+"path": "res://core/map/Map.gd"
+}, {
+"base": "Character",
+"class": "Mario",
+"language": "GDScript",
+"path": "res://core/character/mario/Mario.gd"
+}, {
+"base": "Character",
+"class": "Monster",
+"language": "GDScript",
+"path": "res://core/character/monster/Monster.gd"
+} ]
 _global_script_class_icons={
-
+"Character": "",
+"CollectableItem": "",
+"Map": "",
+"Mario": "",
+"Monster": ""
 }
 
 [application]
