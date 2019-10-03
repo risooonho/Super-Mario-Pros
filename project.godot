@@ -48,6 +48,10 @@ config/name="Super Mario Pros"
 run/main_scene="res://core/map/Map.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SFX="*res://core/singletons/SFX.gd"
+
 [display]
 
 window/size/resizable=false
