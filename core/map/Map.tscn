@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://core/map/Map.gd" type="Script" id=1]
 [ext_resource path="res://core/character/mario/Mario.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://core/character/monster/goomba/Goomba.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/gui/menu/Menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://core/sounds/kill_monster.wav" type="AudioStream" id=7]
+[ext_resource path="res://core/coin/Coin.tscn" type="PackedScene" id=8]
 
 [node name="Map" type="Node"]
 script = ExtResource( 1 )
@@ -68,3 +69,9 @@ editor/display_folded = true
 [node name="KillAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 bus = "SFX"
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( -9, 12 )
+Map_path = NodePath("../..")

@@ -25,6 +25,11 @@ _global_script_classes=[ {
 "path": "res://core/map/Map.gd"
 }, {
 "base": "Character",
+"class": "Mario",
+"language": "GDScript",
+"path": "res://core/character/mario/Mario.gd"
+}, {
+"base": "Character",
 "class": "Monster",
 "language": "GDScript",
 "path": "res://core/character/monster/Monster.gd"
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "Character": "",
 "CollectableItem": "",
 "Map": "",
+"Mario": "",
 "Monster": ""
 }
 
